@@ -1,8 +1,8 @@
 package com.tienda.controller;
 
 
-import com.prueba.entiity.Pedidos;
-import com.prueba.service.IPedidosService;
+import com.tienda.entity.Pedidos;
+import com.tienda.service.IPedidosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

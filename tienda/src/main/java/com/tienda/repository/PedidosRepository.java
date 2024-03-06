@@ -1,7 +1,7 @@
 package com.tienda.repository;
 
 
-import com.prueba.entiity.Pedidos;
+import com.tienda.entity.Pedidos;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

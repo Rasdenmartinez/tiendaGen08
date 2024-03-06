@@ -1,6 +1,6 @@
 package com.tienda.service;
 
-import com.prueba.entiity.Pedidos;
+import com.tienda.entity.Pedidos;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
-package com.tienda.service.impl
+package com.tienda.service.impl;
 
-import com.prueba.entiity.Pedidos;
-import com.prueba.repository.PedidosRepository;
-import com.prueba.service.IPedidosService;
+import com.tienda.entity.Pedidos;
+import com.tienda.repository.PedidosRepository;
+import com.tienda.service.IPedidosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

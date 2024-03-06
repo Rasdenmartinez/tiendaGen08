@@ -1,5 +1,5 @@
 
-package com.tiendaGen08.entiity;
+package com.tienda.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
