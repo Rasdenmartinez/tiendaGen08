@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -32,5 +33,15 @@ class PedidosRepositoryTest {
         assertNotNull(pedido1);
         assertEquals(1,pedido1.getId());
     }
+
+    @Test
+    void deleted() {
+        pedidosRepository.deleteById(1L);
+        List<Pedidos> data=pedidosRepository.findAll();
+        System.out.println(data);
+        assertEquals(0,data.size());
+    }
+
+
 
 }
