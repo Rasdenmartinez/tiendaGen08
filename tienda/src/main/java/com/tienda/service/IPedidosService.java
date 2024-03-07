@@ -21,7 +21,4 @@ public interface IPedidosService {
     public List<Pedidos> findByFechaPedido(LocalDate fecha);
 
 
-   // public List<Pedidos> findByFechaPedidoContaining(String fecha);
-   // public List<Pedidos> findByClienteIdContaining(Long id);
-
 }

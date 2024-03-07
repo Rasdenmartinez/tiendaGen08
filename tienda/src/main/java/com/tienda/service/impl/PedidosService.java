@@ -46,15 +46,4 @@ public class PedidosService implements IPedidosService {
         return pedidosRepository.findByFechaPedido(fecha);
     }
 
-/*
-    @Override
-    public List<Pedidos> findByFechaPedidoContaining(String fecha) {
-        return pedidosRepository.findByFechaPedidoContaining(fecha);
-    }
-
-    @Override
-    public List<Pedidos> findByClienteIdContaining(Long id) {
-        return pedidosRepository.findByClienteIdContaining(id);
-    }
-*/
 }

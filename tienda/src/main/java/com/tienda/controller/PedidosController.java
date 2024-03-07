@@ -46,16 +46,4 @@ public class PedidosController {
         return pedidosService.findByFechaPedido(LocalDate.parse(fecha));
     }
 
-    // filtros
-/*
-    @GetMapping("/pedidos/fecha/{feha}")
-    public List<Pedidos> findByFechaPedidoContaining(@PathVariable String fecha){
-        return pedidosService.findByFechaPedidoContaining(fecha);
-    }
-
-    @GetMapping("/pedidos/cliente/{id}")
-    public List<Pedidos> findByClienteIdContaining(@PathVariable Long id){
-        return pedidosService.findByClienteIdContaining(id);
-    }
-*/
 }
