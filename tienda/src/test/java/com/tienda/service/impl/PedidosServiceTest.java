@@ -81,7 +81,7 @@ class PedidosServiceTest {
     void testFindByFechaPedido() {
         when(pedidosRepository.findByFechaPedido(LocalDate.parse("2024-03-02"))).thenReturn(Arrays.asList(pedido, pedido));
         List<Pedidos> result = pedidosService.findByFechaPedido(LocalDate.parse("2024-03-02"));
-add
+
         assertEquals(2, result.size());
         verify(pedidosRepository, times(1)).findByFechaPedido(LocalDate.parse("2024-03-02"));
     }

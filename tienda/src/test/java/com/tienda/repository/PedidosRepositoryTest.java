@@ -33,7 +33,7 @@ class PedidosRepositoryTest {
     @Test
     void findAll() {
         List<Pedidos> data = pedidosRepository.findAll();
-        System.out.println(data);
+        
         assertEquals(1, data.size());
     }
 
