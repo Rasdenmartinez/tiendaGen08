@@ -23,10 +23,11 @@ class PedidosServiceTest {
     PedidosRepository pedidosRepository;
     @Autowired
     PedidosService pedidosService;
+    Pedidos pedido;
 
     @BeforeEach
     void beforeAll() {
-        Pedidos pedido = Pedidos.builder()
+        pedido = Pedidos.builder()
                 .id(1)
                 .fechaPedido(LocalDate.parse("2024-03-02"))
                 .clienteId(2)
@@ -35,30 +36,54 @@ class PedidosServiceTest {
     }
 
     @Test
-    void saveserviceTest() {
-        Pedidos pedido2 = Pedidos.builder()
-                .id(1)
-                .fechaPedido(LocalDate.parse("2024-03-02"))
-                .clienteId(2)
-                .totalPedido(2000.00F)
-                .build();
-        when(pedidosRepository.save(pedido2)).thenReturn(pedido2);
-        Pedidos data =pedidosService.create(pedido2);
-        assertNotNull(data);
-        assertEquals(1, data.getId());
+    void findAllServiceTest() {
+        when(pedidosRepository.findAll()).thenReturn(Arrays.asList(pedido, pedido, pedido));
+        List<Pedidos> result = pedidosService.read();
+
+        assertEquals(3, result.size());
+        verify(pedidosRepository, times(1)).findAll();
+    }
+
+    @Test
+    void saveServiceTest() {
+        when(pedidosRepository.save(pedido)).thenReturn(pedido);
+        Pedidos data = pedidosService.create(pedido);
+        //assertNotNull(data);
+        //assertEquals(1, data.getId());
+        verify(pedidosRepository, times(1)).save(pedido);
+        assertEquals(pedido, data);
+    }
+    @Test
+    void updateServiceTest() {
+        when(pedidosRepository.save(pedido)).thenReturn(pedido);
+        Pedidos data = pedidosService.update(pedido);
+        verify(pedidosRepository, times(1)).save(pedido);
+        assertEquals(pedido, data);
     }
 
     @Test
     void deleteServiceTest() {
-        Pedidos pedido2 = Pedidos.builder()
-                .id(1)
-                .fechaPedido(LocalDate.parse("2024-03-02"))
-                .clienteId(2)
-                .totalPedido(2000.00F)
-                .build();
         doNothing().when(pedidosRepository).deleteById(1L);
         pedidosService.delete(1L);
-        verify(pedidosRepository,times(1)).deleteById(1L);
+        verify(pedidosRepository, times(1)).deleteById(1L);
+    }
+
+    @Test
+    void testFindByClienteId() {
+        when(pedidosRepository.findByClienteId(2)).thenReturn(Arrays.asList(pedido, pedido));
+        List<Pedidos> result = pedidosService.findByClienteId(2);
+
+        assertEquals(2, result.size());
+        verify(pedidosRepository, times(1)).findByClienteId(2);
+    }
+
+    @Test
+    void testFindByFechaPedido() {
+        when(pedidosRepository.findByFechaPedido(LocalDate.parse("2024-03-02"))).thenReturn(Arrays.asList(pedido, pedido));
+        List<Pedidos> result = pedidosService.findByFechaPedido(LocalDate.parse("2024-03-02"));
+
+        assertEquals(2, result.size());
+        verify(pedidosRepository, times(1)).findByFechaPedido(LocalDate.parse("2024-03-02"));
     }
 
 }

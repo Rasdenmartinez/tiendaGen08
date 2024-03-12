@@ -32,14 +32,15 @@ class PedidosRepositoryTest {
 
     @Test
     void findAll() {
-        List<Pedidos> data = pedidosRepository.findAll();//si es nullo manda un error
-        System.out.println(data);
+        List<Pedidos> data = pedidosRepository.findAll();
+
         assertEquals(1, data.size());
     }
 
     @Test
     void findById() {
-        Pedidos pedido1 = pedidosRepository.findById(1L).orElseThrow();//si es nullo manda un error
+        Pedidos pedido1 = pedidosRepository.findById(1L).orElseThrow();
+
         assertNotNull(pedido1);
         assertEquals(1, pedido1.getId());
     }
@@ -48,21 +49,21 @@ class PedidosRepositoryTest {
     void deleted() {
         pedidosRepository.deleteById(1L);
         List<Pedidos> data = pedidosRepository.findAll();
-        System.out.println(data);
+
         assertEquals(0, data.size());
     }
 
     @Test
     void findByClienteId() {
         List<Pedidos> data = pedidosRepository.findByClienteId(2);//si es nullo manda un error
-        System.out.println(data);
+
         assertEquals(1, data.size());
     }
 
     @Test
     void findByFechaPedido() {
-        List<Pedidos> data = pedidosRepository.findByFechaPedido(LocalDate.parse("2024-03-02"));//si es nullo manda un error
-        System.out.println(data);
+        List<Pedidos> data = pedidosRepository.findByFechaPedido(LocalDate.parse("2024-03-02"));
+
         assertEquals(1, data.size());
     }
 
